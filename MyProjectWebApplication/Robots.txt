@@ -1,3 +1,5 @@
 User-agent *
 Disallow: /MyProjectWebApplication/bin
 Disallow: /MyProjectWebApplication/App_Data
+Sitemap: /sitemap.xml
+Host: http://gpayalta.com
