@@ -1,0 +1,3 @@
+User-agent *
+Disallow: /MyProjectWebApplication/bin
+Disallow: /MyProjectWebApplication/App_Data

@@ -1,0 +1,121 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SP.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="ru">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> Единый портал поставщиков</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <meta name="description" content="Оперативные закупки товаров, работ и услуг. Тендер всей России. Единый портал поставщиков." />
+    <meta name="keywords" content="тендер, закупка товаров, поставщики, РФ поставщики, оперативные закупки, закать, купить" />
+<meta property="og:title" content="Единый портал поставщиков" />
+<meta property="og:image" content="https://zakupki.mos.ru/static/media/pp_logo.201912f6.svg"/>
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:description" content="Оперативные закупки товаров, работ и услуг. Тендер всей России." />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+     <link href="~/Content/Site.css?v=2.4" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+         
+   
+         <form runat="server">
+              <header>
+        <div  class="content"></div>
+
+        <div class="main-info">
+            <div class="title">
+                <h1><asp:Image runat="server" ID="Welcome" class="main-ico" ImageUrl="~/Welcome.png" />Единый портал поставщиков</h1>
+            </div>
+            <div class="slogan">
+                <asp:Label CssClass="WelcomeLabel" runat="server" ID="WelcomeLabel" Text="Оперативные закупки товаров, качественная работа и лучшие услуги."></asp:Label>
+            </div>
+        </div>
+            <nav class="menu-mobile" id="main-menu-mobile">
+
+            <button class="menu-toggle" id="toggle-menu">close</button>
+            <div class="menu-dropdown">
+                <ul class="nav-menu-mobile">
+                    <li><a href="/">
+                        <asp:Label runat="server" Text="Главная" ></asp:Label></a></li>
+                    <li><a href="/About.aspx">
+                        <asp:Label runat="server" Text="О нас" ></asp:Label></a></li>
+                    <li><a href="/Contact.aspx">
+                        <asp:Label runat="server" Text="Контакты" ></asp:Label></a></li>
+                    <li><a href="/Pages/Products/ListProducts.aspx">
+                        <asp:Label runat="server" Text="Товары" ></asp:Label></a></li>
+
+                    <%--     <section id="login">--%>
+
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <!--<li><a id="registerLink" runat="server" href="~/Account/Register.aspx">Register</a></li> -->
+                            <li><a id="loginLink" runat="server" href="~/Account/Login.aspx">
+                                <asp:Label runat="server" meta:resourcekey="LabelResourceLogIn">Авторизация</asp:Label></a> </li>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <li><a runat="server" class="username" href="~/Account/Manage.aspx" title="Manage your account">
+                                <asp:LoginName runat="server" CssClass="username" meta:resourcekey="LoginNameResource1" />
+                                <asp:Label runat="server" meta:resourcekey="LabelResource103"></asp:Label></a></li>
+                            <li>
+                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" meta:resourcekey="LoginStatusResource1" />
+                            </li>
+
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                     <img type="submit" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Spotlight_OS_X.svg/1270px-Spotlight_OS_X.svg.png" class="in-search"></button>
+
+                    <asp:DropDownList ID="DropDownList1" class="list-translate" runat="server"  AutoPostBack="True">
+                        <asp:ListItem meta:resourcekey="ListItemResource1" Value="ru-ru">Рус</asp:ListItem>
+                        <asp:ListItem meta:resourcekey="ListItemResource2" Value="en-us">Eng</asp:ListItem>
+                    </asp:DropDownList>
+                   
+                    <%--</section>--%>
+                <!--     <li><a href="/#">
+                        <asp:Label runat="server" Text="Поиск" ></asp:Label></a></li> -->
+                </ul>
+            </div>
+        </nav>
+
+       
+
+
+    
+        </header>
+        <asp:ScriptManager runat="server">
+        </asp:ScriptManager>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - единый портал поставщиков</p>
+            </footer>
+        </div>
+
+    </form>
+
+        <script type="text/javascript">
+        (function () {
+            var button = document.getElementById('toggle-menu');
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                var menu = document.getElementById('main-menu-mobile');
+                menu.classList.toggle('is-open');
+            })
+        })();
+    </script>
+</body>
+</html>
